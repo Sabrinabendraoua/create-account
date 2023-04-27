@@ -36,3 +36,9 @@ input {
 .red {
   border: solid 1px red;
 }
+.notvisibility {
+  visibility: hidden;
+}
+.visibility {
+  visibility: visible;
+}

@@ -7,7 +7,7 @@ const form = () => {
   const [passwordBis, setPasswordBis] = useState("");
 
   return (
-    <main>
+    <main className={password === passwordBis ? "notvisibility" : "visibility"}>
       <h1>Create account</h1>
       {/*j'utilise l'attribut onSubmit car j'ai utilisé le button submit */}
       <form
