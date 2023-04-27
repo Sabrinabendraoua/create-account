@@ -13,14 +13,16 @@ const form = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          if (password != passwordBis) {
+          if (password !== passwordBis) {
             alert("Vos deux mots de passe sont différents");
+          } else {
+            alert("ok");
           }
         }}
       >
         {/*j'utilise onChange pr que des que mon input change il se passe quelque chose */}
         <input
-          valeur={lastname}
+          value={lastname}
           type="text"
           placeholder="Sabrina Kessar"
           onChange={(event) => {
@@ -29,7 +31,7 @@ const form = () => {
           }}
         />
         <input
-          valeur={email}
+          value={email}
           type="email"
           placeholder="Sabrina@lereacteur.io"
           onChange={(event) => {
@@ -38,6 +40,7 @@ const form = () => {
           }}
         />
         <input
+          className={password === passwordBis ? "" : "red"}
           type="password"
           placeholder="123456"
           onChange={(event) => {
@@ -46,6 +49,7 @@ const form = () => {
           }}
         />
         <input
+          className={password === passwordBis ? "" : "red"}
           type="password"
           placeholder="123456"
           onChange={(event) => {
