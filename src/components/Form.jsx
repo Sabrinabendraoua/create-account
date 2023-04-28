@@ -1,27 +1,30 @@
 import { useState } from "react";
+import Result from "./Result";
 
 const form = () => {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordBis, setPasswordBis] = useState("");
+  const [result, setResult] = useState(false);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (password !== passwordBis) {
+      alert("Vos mots de passe ne sont pas identiques");
+    } else {
+      setResult(true);
+    }
+  };
   return (
-    <main className={password === passwordBis ? "notvisibility" : "visibility"}>
-      <h1>Create account</h1>
+    <main>
       {/*j'utilise l'attribut onSubmit car j'ai utilisé le button submit */}
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (password !== passwordBis) {
-            alert("Vos deux mots de passe sont différents");
-          } else {
-            alert("ok");
-          }
-        }}
-      >
+      <form onSubmit={handleSubmit}>
+        <h1>Create account</h1>
         {/*j'utilise onChange pr que des que mon input change il se passe quelque chose */}
+        <label htmlFor="lastname">Name</label>
         <input
+          id="lastname"
           value={lastname}
           type="text"
           placeholder="Sabrina Kessar"
@@ -30,7 +33,9 @@ const form = () => {
             console.log(event.target.value);
           }}
         />
+        <label htmlFor="email">Email</label>
         <input
+          id="email"
           value={email}
           type="email"
           placeholder="Sabrina@lereacteur.io"
@@ -39,7 +44,9 @@ const form = () => {
             console.log(event.target.value);
           }}
         />
+        <label htmlFor="password">Password</label>
         <input
+          id="password"
           className={password === passwordBis ? "" : "red"}
           type="password"
           placeholder="123456"
@@ -48,7 +55,9 @@ const form = () => {
             console.log(event.target.value);
           }}
         />
+        <label htmlFor="passwordBis">Password à confirmer</label>
         <input
+          id="passwordBis"
           className={password === passwordBis ? "" : "red"}
           type="password"
           placeholder="123456"
