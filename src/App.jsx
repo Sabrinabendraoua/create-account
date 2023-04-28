@@ -8,6 +8,7 @@ const App = () => {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordBis, setPasswordBis] = useState("");
   const [result, setResult] = useState(false);
 
   return (

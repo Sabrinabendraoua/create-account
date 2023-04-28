@@ -1,19 +1,15 @@
 import { useState } from "react";
-import Result from "./Result";
 
 const form = () => {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordBis, setPasswordBis] = useState("");
-  const [result, setResult] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (password !== passwordBis) {
       alert("Vos mots de passe ne sont pas identiques");
-    } else {
-      setResult(true);
     }
   };
   return (
